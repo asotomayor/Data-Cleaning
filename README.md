@@ -29,7 +29,7 @@ messymovies <-read.csv("..//ActCol3-messydataset/movies.csv", header=TRUE, strin
 library(knitr)
 head(messymovies)
 
-### De la primera visuación se observa que tenemos multitud de caracteres especiales, un numero elevado de columnas, numerosas observaiones con el valor ¨NA¨. Consideramos elimnar todas las filas que contengan algun valor ¨NA¨, y al ser una data set bastante pequeño se convertiran los caracteres especiales y elimnaran espacios en la nueva lectura del fichero correspondienteen este caso a tidydataset. Además se eliminaran columnas consideradas no relevantes.
+### De la primera visuación se observa que tenemos multitud de caracteres especiales, un numero elevado de columnas y numerosas observaiones con el valor ¨NA¨. Consideramos eliminar todas las filas que contengan algun valor ¨NA¨ y al ser una data set bastante pequeño se convertiran los caracteres especiales y elimnaran espacios en la nueva lectura del fichero correspondiente en este caso a tidydataset. Además se eliminaran columnas consideradas no relevantes.
 
 ## Carga de tidydataset movies eliminando caracteres especiales y espacios a ambos lados
 tidymovies <- read.csv("..//ActCol3-messydataset/movies.csv", header=TRUE, 
