@@ -5,7 +5,7 @@ A continuación se describen las medidas aplicadas para la limpieza de un data s
 ## Obtenemos directorio de trabajo
 getwd()
 
-## Crearmos nuevo diretorio de trabajo
+## Creamos nuevo diretorio de trabajo
 if(!file.exists("C:/Users/Antonio/Documents/Master-BigData/ActCol3-scripts//"))
 {dir.create("C:/Users/Antonio/Documents/Master-BigData/ActCol3-scripts")}
 
@@ -24,18 +24,18 @@ fileurl <-"https://raw.githubusercontent.com/sundeepblue/movie_rating_prediction
 download.file(fileurl,destfile="..//ActCol3-messydataset//movies.csv")
 fechaDescarga <- date()
 
-## Carga de messydataset movies y primera visualicón de los datos
+## Carga de messydataset movies y primera visualización de los datos
 messymovies <-read.csv("..//ActCol3-messydataset/movies.csv", header=TRUE, stringsAsFactors = FALSE)
 library(knitr)
 head(messymovies)
 
-De la primera visuación se observa que tenemos multitud de caracteres especiales, un numero elevado de columnas, numerosas observaiones con el valor ¨NA¨.
+### De la primera visuación se observa que tenemos multitud de caracteres especiales, un numero elevado de columnas, numerosas observaiones con el valor ¨NA¨. Consideramos elimnar todas las filas que contengan algun valor ¨NA¨, y al ser una data set bastante pequeño se convertiran los caracteres especiales y elimnaran espacios en la nueva lectura del fichero correspondienteen este caso a tidydataset. Además se eliminaran columnas consideradas no relevantes.
 
 ## Carga de tidydataset movies eliminando caracteres especiales y espacios a ambos lados
 tidymovies <- read.csv("..//ActCol3-messydataset/movies.csv", header=TRUE, 
                        stringsAsFactors = FALSE, encoding = "UTF-8", strip.white=TRUE)
 
-## Omisión de todass las filas que contengan algun valor NA
+## Omisión de todas las filas que contengan algun valor NA
 tidymovies <- na.omit(tidymovies)
 
 ## Eliminamos columnas no relevantes 
@@ -51,7 +51,7 @@ new_names <- c("color","director", "duration", "gross", "genres", "protagonist",
                "title", "language", "country", "content","budget", "release", "score", "ratio")
 names(tidymovies) <- new_names
 
-## Ordernar columnas
+## Ordernamos columnas
 tidymovies<- tidymovies[,c("color","duration","release","title","director",
                            "protagonist","country","language","genres","content","budget","gross",
                            "score","ratio")]
