@@ -31,14 +31,14 @@ head(messymovies)
 
 De la primera visuación se observa que tenemos multitud de caracteres especiales, un numero elevado de columnas, numerosas observaiones con el valor ¨NA¨.
 
-# Carga de tidydataset movies eliminando caracteres especiales y espacios a ambos lados
+## Carga de tidydataset movies eliminando caracteres especiales y espacios a ambos lados
 tidymovies <- read.csv("..//ActCol3-messydataset/movies.csv", header=TRUE, 
                        stringsAsFactors = FALSE, encoding = "UTF-8", strip.white=TRUE)
 
-# Omisión de todass las filas que contengan algun valor NA
+## Omisión de todass las filas que contengan algun valor NA
 tidymovies <- na.omit(tidymovies)
 
-# Eliminamos columnas no relevantes 
+## Eliminamos columnas no relevantes 
 tidymovies <- tidymovies[,!grepl("face", colnames(tidymovies))]
 tidymovies <- tidymovies[,!grepl("num", colnames(tidymovies))]
 tidymovies <- tidymovies[,!grepl("plot", colnames(tidymovies))]
@@ -46,18 +46,18 @@ tidymovies <- tidymovies[,!grepl("link", colnames(tidymovies))]
 tidymovies <- tidymovies[,!grepl("actor_2", colnames(tidymovies))]
 tidymovies <- tidymovies[,!grepl("actor_3", colnames(tidymovies))]
 
-# Renombramos columnas
+## Renombramos columnas
 new_names <- c("color","director", "duration", "gross", "genres", "protagonist",
                "title", "language", "country", "content","budget", "release", "score", "ratio")
 names(tidymovies) <- new_names
 
-# Ordernar columnas
+## Ordernar columnas
 tidymovies<- tidymovies[,c("color","duration","release","title","director",
                            "protagonist","country","language","genres","content","budget","gross",
                            "score","ratio")]
 
-# Ordenamos valores por score and rario descendente
+## Ordenamos valores por score and rario descendente
 tidymovies <- tidymovies[order(tidymovies$score,tidymovies$ratio, decreasing = TRUE),]
 
-# Ecritura del fichero limpiado en la carpeta de datos limpios
+## Ecritura del fichero limpiado en la carpeta de datos limpios
 write.csv2(tidymovies,file = "../ActCol3-tidydataset/tidymovies.csv", row.names=FALSE)
