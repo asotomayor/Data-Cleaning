@@ -1,4 +1,4 @@
-# Actividad Colaborativa Modulo 3
+# Actividad Colaborativa Módulo 3
 
 A continuación se describen las medidas aplicadas para la limpieza de un data set compuesto por 5000 películas procedente de la web http://www.imdb.com/
 
