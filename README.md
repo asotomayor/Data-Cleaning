@@ -37,7 +37,7 @@ head(messymovies)
 tidymovies <- read.csv("..//ActCol3-messydataset/movies.csv", header=TRUE, 
                        stringsAsFactors = FALSE, encoding = "UTF-8", strip.white=TRUE)
 
-## Convertimos valores de columnas gross y budyet a enteros
+## Convertimos valores de columnas gross y budget a enteros
 tidymovies$budget <- as.integer(tidymovies$budget )
 tidymovies$gross <- as.integer(tidymovies$gross )
 
