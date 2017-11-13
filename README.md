@@ -1,6 +1,7 @@
 # Actividad Colaborativa Modulo 3
 
 A continuación se describen las medidas aplicadas para la limpieza de un data set compuesto por 5000 películas procedente de la web http://www.imdb.com/
+
 dataset source: https://raw.githubusercontent.com/sundeepblue/movie_rating_prediction/master/movie_metadata.csv
 
 ## Obtenemos directorio de trabajo
