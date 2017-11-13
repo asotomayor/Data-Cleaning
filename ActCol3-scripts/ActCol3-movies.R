@@ -29,6 +29,10 @@ head(messymovies)
 tidymovies <- read.csv("..//ActCol3-messydataset/movies.csv", header=TRUE, 
                        stringsAsFactors = FALSE, encoding = "UTF-8", strip.white=TRUE)
 
+# Convertimos valores de columnas gross y budyet a enteros
+tidymovies$budget <- as.integer(tidymovies$budget )
+tidymovies$gross <- as.integer(tidymovies$gross )
+
 # Omitimos todas las filas que contengan algún valor NA
 tidymovies <- na.omit(tidymovies)
 
@@ -45,7 +49,7 @@ new_names <- c("color","director", "duration", "gross", "genres", "protagonist",
                "title", "language", "country", "content","budget", "release", "score", "ratio")
 names(tidymovies) <- new_names
 
-# Ordernar columnas
+# Ordernamos columnas
 tidymovies<- tidymovies[,c("color","duration","release","title","director",
                            "protagonist","country","language","genres","content","budget","gross",
                            "score","ratio")]
@@ -55,4 +59,4 @@ tidymovies <- tidymovies[order(tidymovies$score,tidymovies$ratio, decreasing = T
 
 # Ecritura del fichero limpiado
 write.csv2(tidymovies,file = "../ActCol3-tidydataset/tidymovies.csv", row.names=FALSE)
-
+str(tidymovies)
